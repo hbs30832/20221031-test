@@ -1,3 +1,4 @@
+/* 기본 스타일 제거 */
 * {
   margin: 0;
   padding: 0;
@@ -13,13 +14,15 @@ a {
   text-decoration: none;
 }
 
+/* 로고, 내비게이션 나열 */
 header {
   display: flex;
-  align-items: center;
+  justify-content: center;
   position: relative;
   background-color: #ddd;
 }
 
+/* 로고를 절대위치로 잡아서 내비게이션 가운데로 나열 잘 되게 처리 */
 #logo {
   position: absolute;
   height: 60px;
@@ -28,51 +31,52 @@ header {
   left: 30px;
 }
 
-#gnb {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
+/* 내비게이션 아이템 나열 */
 #gnbList {
   display: flex;
 }
 
+/* a태그의 높이를 지정하여 헤더의 높이를 늘린다(60px).*/
 #gnbList li a {
   display: block;
   height: 60px;
   width: 100px;
 
+  /* 글씨 세로 가운데 정렬 => flex + align-items도 가능 */
   text-align: center;
   line-height: 60px;
 }
 
+/* 내비게이션 호버시 배경색, 글씨색 변경 */
 #gnbList li a:hover {
   background-color: #bbb;
   color: #fff;
 }
 
+/* 슬라이더 스크롤바 안생기기 위해 overflow:hidden 처리 */
 #slideContainer {
   overflow: hidden;
   background-color: #bbb;
 }
 
+/* 슬라이드 아이템을 옆으로 나열 및 트랜지션 적용 */
 .slideWrapper {
   display: flex;
   height: 300px;
-  width: 300vw;
   transition: 0.25s;
 }
 
+/* 슬라이드 아이템 뷰포트 너비(100vw)만큼 적용 */
 .slideItem {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
-  flex-shrink: 0;
+  width: 100vw;
+  flex-shrink: 0; /* flex 아이템은 공간이 부족할 경우 줄어들기 때문에 줄이지 않게 설정 */
   font-size: 3rem;
 }
 
+/* 슬라이드 버튼들 가운데 정렬 */
 .slideBtnList {
   display: flex;
   justify-content: center;
@@ -85,16 +89,19 @@ header {
   margin: 0 10px;
 }
 
+/* 이미지 영역 위 아래 패딩 50px 적용 */
 .imgList {
   padding: 50px 0;
   background-color: #eee;
 }
 
+/* 이미지 목록 나열 */
 .imgList ul {
   display: flex;
   justify-content: center;
 }
 
+/* 이미지의 기본 크기(150 * 200)을 잡고 overflow:hidden 처리 */
 .imgList ul li {
   display: flex;
   justify-content: center;
@@ -110,13 +117,14 @@ header {
 }
 
 .imgList ul li:hover img {
-  height: 110%;
+  transform: scale(1.1);
 }
 
 .imgList ul li:nth-child(2) {
   margin: 0 20px;
 }
 
+/* 뷰포트의 오른쪽 아래에 위치하고 나타나는 애니메이션 적용 */
 .btnChat {
   display: flex;
   justify-content: center;
@@ -136,12 +144,14 @@ header {
   animation: slideUp 0.4s, fadeIn 0.5s;
 }
 
+/* 20px 아래에서 올라오는 효과 */
 @keyframes slideUp {
   from {
     transform: translateY(20px);
   }
 }
 
+/* 투명한 상태에서 나타나는 효과 */
 @keyframes fadeIn {
   from {
     opacity: 0;
